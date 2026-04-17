@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, IntegerType, StringType
-from pyspark.sql.functions import col, to_timestamp, max, min, mean, date_trunc, collect_set, hour, minute, count
+from pyspark.sql.functions import col, collect_set, count, date_trunc, hour, max, mean, min, minute, to_timestamp
+from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
 
 def load_data(ss: SparkSession, from_file, schema):

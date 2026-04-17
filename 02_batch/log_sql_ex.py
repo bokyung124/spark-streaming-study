@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, IntegerType, StringType
+from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
 
 def load_data(ss: SparkSession, from_file, schema):
@@ -67,9 +67,9 @@ if __name__ == "__main__":
     # c) group by
     # c-1) method, endpoint 별 latency의 최댓값, 최솟값, 평균값 확인
     ss.sql(f"""
-    SELECT 
-        method, 
-        endpoint, 
+    SELECT
+        method,
+        endpoint,
         MAX(latency) AS max_latency,
         MIN(latency) AS min_latency,
         AVG(latency) AS mean_latency
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     # c-2) 분 단위의, 중복을 제거한 ip 리스트, 개수 뽑기
     # ss.sql(f"""
     ss.sql(f"""
-        SELECT 
+        SELECT
             hour(date_trunc('HOUR', timestamp)) AS hour,
             minute(date_trunc('MINUTE', timestamp)) AS minute,
             collect_set(ip) AS ip_list,
