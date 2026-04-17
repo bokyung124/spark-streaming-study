@@ -1,7 +1,7 @@
-from typing import List
 from datetime import datetime
+from typing import List
 
-from pyspark import SparkContext, RDD
+from pyspark import RDD, SparkContext
 from pyspark.sql import SparkSession
 
 if __name__ == "__main__":
