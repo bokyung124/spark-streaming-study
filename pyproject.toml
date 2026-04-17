@@ -1,0 +1,29 @@
+[project]
+name = "spark-streaming-study"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "py4j>=0.10.9.7",
+    "pyspark>=3.4.1",
+]
+
+# --- Ruff ---
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["F", "W", "E", "I"]
+ignore = ["E501"]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.0",
+]
